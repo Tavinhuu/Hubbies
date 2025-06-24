@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+  --cor-fundo: #ffffff;
+  --cor-fundo-secundario: #f6f7f8;
+  --cor-borda: #dae0e6;
+  --cor-primaria: #0079d3;
+  --cor-primaria-hover: #148be0;
+  --texto-principal: #1c1c1c;
+  --texto-secundario: #878a8c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--cor-fundo-secundario);
+  color: var(--texto-principal);
+}
+
+/* --- CABEÇALHO E LAYOUT GERAL --- */
+.cabecalho-principal {
+  background-color: var(--cor-fundo);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  width: 90%;
+  align-items: center;
+  z-index: 1000;
+  margin: 1%;
+  border-radius: 20px; 
+}
+.cabecalho-principal .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.cabecalho-principal .logo img {
+  height: 40px;
+}
+.cabecalho-principal .menu-usuario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.cabecalho-principal .menu-usuario a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px; 
+  background-color: var(--cor-fundo-secundario);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.cabecalho-principal .menu-usuario a:hover {
+  color: var(--texto-principal);
+}
+.cabecalho-principal .menu-usuario .foto-perfil {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--cor-fundo);
+}
+
+
+.cabecalho-principal .menu-usuario a:hover {
+  background-color: var(--cor-borda); 
+}
+
+
+.caixa-busca-container {
+  position: relative;
+  flex-grow: 1;
+  max-width: 600px;
+  margin: 0 20px;
+}
+.caixa-busca {
+  background-color: var(--cor-fundo-secundario);
+  border: 1px solid var(--cor-borda);
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+.caixa-busca:hover,
+.caixa-busca:focus-within {
+  border-color: var(--cor-primaria);
+}
+.caixa-busca i {
+  color: var(--texto-secundario);
+}
+.caixa-busca input {
+  border: none;
+  background: transparent;
+  outline: none;
+  margin-left: 10px;
+  width: 100%;
+  color: var(--texto-principal);
+  font-size: 1rem;
+}
+.caixa-resultados-pesquisa {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.item-resultado {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--texto-principal);
+  border-bottom: 1px solid var(--cor-borda);
+}
+.item-resultado:last-child {
+  border-bottom: none;
+}
+.item-resultado:hover {
+  background-color: var(--cor-fundo-secundario);
+}
+.item-resultado img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.item-resultado .info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+.item-resultado .info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--texto-secundario);
+}
+
+/* --- CARTÃO (CARD) --- */
+.cartao {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.cartao-conteudo {
+  padding: 12px;
+}
+.titulo-cartao {
+  padding: 12px;
+  background-color: var(--cor-fundo-secundario);
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+/* --- MODAL (COM CENTRALIZAÇÃO CORRIGIDA) --- */
+#modalComentario {
+  width: 100%;
+  max-width: 450px;
+  padding: 2em;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background-color: var(--cor-fundo);
+  color: var(--texto-principal);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  /* A linha abaixo é a correção para centralizar o modal na tela */
+  margin: auto;
+}
+#modalComentario::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+#modalComentario h4 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+#modalComentario p {
+  margin-bottom: 20px;
+  color: var(--texto-secundario);
+}
+#modalComentario textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  resize: vertical;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--cor-fundo-secundario);
+  color: var(--texto-principal);
+}
+#modalComentario .acoes-modal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+#modalComentario .acoes-modal button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
+}
+#modalComentario #botaoCancelarModal {
+  background-color: #e9ecef;
+  color: #495057;
+}
+#modalComentario #botaoEnviarAvaliacao {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+/* --- BOTÕES E INPUTS GERAIS --- */
+.botao-login {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.botao-login:hover {
+  background-color: var(--cor-primaria-hover);
+}
+.input-select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--cor-fundo-secundario);
+  color: var(--texto-principal);
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.input-select:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
